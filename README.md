@@ -6,7 +6,7 @@
 
 To design a servo motor operating algorithm to form the robot's walking motion, we need to implement a set of programming steps that control the movement of the servo motors to form the walking motion. I will give you a simple example using the Python programming language.
 
-Prerequisites:
+## Prerequisites:
 
 Servo library to control servo motors.
 
