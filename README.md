@@ -17,13 +17,13 @@ import time
 import numpy as np
 from Servo import Servo
 
-Define the servo motors and their location:
-
+### Define the servo motors and their location:
+```
 servo_pins = [2, 3, 4, 5, 6, 7] # List of the pin numbers connected to the servo
 servos = [Servo(pin) for pin in servo_pins]
-
-Define the start and end angles:
-
+```
+### Define the start and end angles:
+```
 Start and end angles for each servo
 initial_angles = [90, 90, 90, 90, 90, 90] # Default start angles
 walking_angles = [
@@ -34,26 +34,27 @@ walking_angles = [
 [70, 110],
 [80, 100]
 ]
-
-Function to move the servo to a certain angle:
-
+```
+### Function to move the servo to a certain angle:
+```
 def move_servo(servo, angle):
 servo.write(angle)
 time.sleep(0.02) # Wait a little while to let the servo move
-
-Function to form the walking motion:
-
+```
+### Function to form the walking motion:
+```
 def walk_cycle():
 for i in range(len(servos)):
-move_servo(servos[i], walking_angles[i][0]) # Step forward
+move_servo(servos[i], walking_angles[i][0])   # Step forward
 time.sleep(0.5) # Wait for equilibrium
 
 for i in range(len(servos)):
-move_servo(servos[i], walking_angles[i][1]) # Step back
+move_servo(servos[i], walking_angles[i][1])   # Step back
 time.sleep(0.5) # Wait for equilibrium
+```
 
-Run the walking motion repeatedly:
-
+### Run the walking motion repeatedly:
+```
 def start_walking():
 try:
 while True:
@@ -61,11 +62,10 @@ walk_cycle()
 except KeyboardInterrupt:
 print("Stop walking.")
 for i in range(len(servos)):
-move_servo(servos[i], initial_angles[i]) # Return to default angles
-
-Run:
-To start the robot, call the start_walking() function:
-
+move_servo(servos[i], initial_angles[i])     # Return to default angles
+```
+### Run:To start the robot, call the start_walking() function:
+```
 if name == "main":
 start_walking()
-
+```
